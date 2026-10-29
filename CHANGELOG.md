@@ -6,6 +6,12 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+
+- Release workflow now re-runs the full CI matrix on the tagged commit and publishes only if it passes.
+- Release workflow builds the wheel, installs it in a clean environment, smoke-tests the CLI and runs the test suite against it before publishing.
+- Release notes come from `docs/releases/<tag>.md` (capabilities and known limitations); `0.x` and suffixed tags are published as prereleases.
+
 ## [0.1.0] - 2026-10-29
 
 First working version.
