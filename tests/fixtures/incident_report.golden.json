@@ -1,0 +1,230 @@
+{
+  "blackbox_version": "0.1.0",
+  "chain": {
+    "checked": 7,
+    "head": "0ec45aefaf7980a3cc0b64bddea9e13d31f7111f8d60d2bfab14c0103fba9b24",
+    "message": "chain intact",
+    "ok": true
+  },
+  "findings": [
+    {
+      "failure": {
+        "detail": "up -> down (127.0.0.1:8080: Connection refused)",
+        "effective_ts": "2026-10-29T14:12:13.000Z",
+        "hash": "8d6140c32a1164cc68dac652c078799abed16c5d6f6edf264220b6e041c429a4",
+        "id": 5,
+        "kind": "service.failed",
+        "payload": {
+          "detail": "127.0.0.1:8080: Connection refused",
+          "from": "up",
+          "kind": "tcp",
+          "status": "down"
+        },
+        "severity": "error",
+        "subject": "api",
+        "ts": "2026-10-29T14:12:13.000Z"
+      },
+      "preceded_by": [
+        {
+          "event": {
+            "detail": "+1 -1 lines",
+            "effective_ts": "2026-10-29T14:12:01.000Z",
+            "hash": "0271a60d1da1f061f2598539f2cabf20e4f9531f5d4174f204079058c917f58e",
+            "id": 4,
+            "kind": "config.changed",
+            "payload": {
+              "diff": "--- /etc/app/app.conf (before)\n+++ /etc/app/app.conf (after)\n@@ -1,3 +1,3 @@\n listen = 8080\n-workers = 4\n+workers = 400\n log_level = info",
+              "lines_added": 1,
+              "lines_removed": 1,
+              "mtime_us": 1793283121000000,
+              "redacted_only": false,
+              "size": 60
+            },
+            "severity": "warning",
+            "subject": "/etc/app/app.conf",
+            "ts": "2026-10-29T14:12:03.000Z"
+          },
+          "lead_seconds": 12.0
+        }
+      ]
+    },
+    {
+      "failure": {
+        "detail": "97.0% (floor 85.0%, baseline 20.0%)",
+        "effective_ts": "2026-10-29T14:12:23.000Z",
+        "hash": "734dc628133b555bd2b1ddaf66932e4303480ea1b0a55cc3e5a439e0232aaf9a",
+        "id": 6,
+        "kind": "resource.spike",
+        "payload": {
+          "baseline_mean": 20.0,
+          "baseline_samples": 30,
+          "baseline_std": 1.5,
+          "floor": 85.0,
+          "value": 97.0
+        },
+        "severity": "warning",
+        "subject": "cpu",
+        "ts": "2026-10-29T14:12:23.000Z"
+      },
+      "preceded_by": [
+        {
+          "event": {
+            "detail": "up -> down (127.0.0.1:8080: Connection refused)",
+            "effective_ts": "2026-10-29T14:12:13.000Z",
+            "hash": "8d6140c32a1164cc68dac652c078799abed16c5d6f6edf264220b6e041c429a4",
+            "id": 5,
+            "kind": "service.failed",
+            "payload": {
+              "detail": "127.0.0.1:8080: Connection refused",
+              "from": "up",
+              "kind": "tcp",
+              "status": "down"
+            },
+            "severity": "error",
+            "subject": "api",
+            "ts": "2026-10-29T14:12:13.000Z"
+          },
+          "lead_seconds": 10.0
+        },
+        {
+          "event": {
+            "detail": "+1 -1 lines",
+            "effective_ts": "2026-10-29T14:12:01.000Z",
+            "hash": "0271a60d1da1f061f2598539f2cabf20e4f9531f5d4174f204079058c917f58e",
+            "id": 4,
+            "kind": "config.changed",
+            "payload": {
+              "diff": "--- /etc/app/app.conf (before)\n+++ /etc/app/app.conf (after)\n@@ -1,3 +1,3 @@\n listen = 8080\n-workers = 4\n+workers = 400\n log_level = info",
+              "lines_added": 1,
+              "lines_removed": 1,
+              "mtime_us": 1793283121000000,
+              "redacted_only": false,
+              "size": 60
+            },
+            "severity": "warning",
+            "subject": "/etc/app/app.conf",
+            "ts": "2026-10-29T14:12:03.000Z"
+          },
+          "lead_seconds": 22.0
+        }
+      ]
+    }
+  ],
+  "generated": "2026-10-29T14:20:00Z",
+  "machine_id": "web-01",
+  "timeline": [
+    {
+      "detail": "0.1.0",
+      "effective_ts": "2026-10-29T14:00:00.000Z",
+      "hash": "8a8f820431eae0cb9666a152e15756a7066d8354b5d931adb093ea8042c659b0",
+      "id": 1,
+      "kind": "recorder.started",
+      "payload": {
+        "version": "0.1.0"
+      },
+      "severity": "info",
+      "subject": "recorder",
+      "ts": "2026-10-29T14:00:00.000Z"
+    },
+    {
+      "detail": "baseline recorded",
+      "effective_ts": "2026-10-29T14:00:10.000Z",
+      "hash": "f105cfa003882fcedd82c4715922fdccedd4073c99329fb5cd7d18be7ce56a88",
+      "id": 2,
+      "kind": "config.baseline",
+      "payload": {
+        "present": true
+      },
+      "severity": "info",
+      "subject": "/etc/app/app.conf",
+      "ts": "2026-10-29T14:00:10.000Z"
+    },
+    {
+      "detail": "up (ok)",
+      "effective_ts": "2026-10-29T14:00:10.000Z",
+      "hash": "0e60798990a8fd120dc41d81115d95a054e9f7cd9e191b7cae4a0e32b6f9496c",
+      "id": 3,
+      "kind": "service.baseline",
+      "payload": {
+        "detail": "ok",
+        "kind": "tcp",
+        "status": "up"
+      },
+      "severity": "info",
+      "subject": "api",
+      "ts": "2026-10-29T14:00:10.000Z"
+    },
+    {
+      "detail": "+1 -1 lines",
+      "effective_ts": "2026-10-29T14:12:01.000Z",
+      "hash": "0271a60d1da1f061f2598539f2cabf20e4f9531f5d4174f204079058c917f58e",
+      "id": 4,
+      "kind": "config.changed",
+      "payload": {
+        "diff": "--- /etc/app/app.conf (before)\n+++ /etc/app/app.conf (after)\n@@ -1,3 +1,3 @@\n listen = 8080\n-workers = 4\n+workers = 400\n log_level = info",
+        "lines_added": 1,
+        "lines_removed": 1,
+        "mtime_us": 1793283121000000,
+        "redacted_only": false,
+        "size": 60
+      },
+      "severity": "warning",
+      "subject": "/etc/app/app.conf",
+      "ts": "2026-10-29T14:12:03.000Z"
+    },
+    {
+      "detail": "up -> down (127.0.0.1:8080: Connection refused)",
+      "effective_ts": "2026-10-29T14:12:13.000Z",
+      "hash": "8d6140c32a1164cc68dac652c078799abed16c5d6f6edf264220b6e041c429a4",
+      "id": 5,
+      "kind": "service.failed",
+      "payload": {
+        "detail": "127.0.0.1:8080: Connection refused",
+        "from": "up",
+        "kind": "tcp",
+        "status": "down"
+      },
+      "severity": "error",
+      "subject": "api",
+      "ts": "2026-10-29T14:12:13.000Z"
+    },
+    {
+      "detail": "97.0% (floor 85.0%, baseline 20.0%)",
+      "effective_ts": "2026-10-29T14:12:23.000Z",
+      "hash": "734dc628133b555bd2b1ddaf66932e4303480ea1b0a55cc3e5a439e0232aaf9a",
+      "id": 6,
+      "kind": "resource.spike",
+      "payload": {
+        "baseline_mean": 20.0,
+        "baseline_samples": 30,
+        "baseline_std": 1.5,
+        "floor": 85.0,
+        "value": 97.0
+      },
+      "severity": "warning",
+      "subject": "cpu",
+      "ts": "2026-10-29T14:12:23.000Z"
+    },
+    {
+      "detail": "down -> up (ok)",
+      "effective_ts": "2026-10-29T14:14:03.000Z",
+      "hash": "0ec45aefaf7980a3cc0b64bddea9e13d31f7111f8d60d2bfab14c0103fba9b24",
+      "id": 7,
+      "kind": "service.recovered",
+      "payload": {
+        "detail": "ok",
+        "from": "down",
+        "kind": "tcp",
+        "status": "up"
+      },
+      "severity": "info",
+      "subject": "api",
+      "ts": "2026-10-29T14:14:03.000Z"
+    }
+  ],
+  "window": {
+    "around": "2026-10-29T14:12:13Z",
+    "end": "2026-10-29T14:17:13Z",
+    "start": "2026-10-29T13:42:13Z"
+  }
+}

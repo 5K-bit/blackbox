@@ -1,0 +1,40 @@
+# A realistic starting point for a small Linux web host. Copy to blackbox.toml and edit.
+# Every key is validated at startup; a typo is an error, not a silent no-op.
+
+machine_id = "auto"            # hostname
+db_path = "blackbox.db"        # relative to this file
+interval_seconds = 10
+
+[files]
+paths = [
+  "/etc/nginx/nginx.conf",
+  "/etc/myapp/app.conf",
+  "/etc/ssh/sshd_config",
+]
+max_bytes = 1048576
+
+[[services]]
+name = "nginx"
+kind = "systemd"
+unit = "nginx.service"
+
+[[services]]
+name = "myapp-api"
+kind = "tcp"
+host = "127.0.0.1"
+port = 8080
+
+[[services]]
+name = "backup-job"
+kind = "command"               # exit code 0 = healthy; no shell is involved
+command = ["/usr/local/bin/backup-is-fresh", "--max-age", "26h"]
+
+[resources]
+cpu_floor = 85
+mem_floor = 90
+disk_floor = 90
+disk_paths = ["/", "/var"]
+window = 30
+
+[redaction]
+extra_patterns = ['internal-token-[0-9a-f]{16}']
