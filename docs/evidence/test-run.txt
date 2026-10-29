@@ -1,0 +1,171 @@
+# Captured 2026-10-29T21:00:11Z on Linux-6.18.44-fc-v185-x86_64-with-glibc2.39, Python 3.13.18
+# command: python -m pytest -o addopts="" -v --cov --cov-report=term-missing
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+rootdir: /home/claude/blackbox
+configfile: pyproject.toml
+testpaths: tests
+plugins: platformdirs-4.13.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 136 items
+
+tests/integration/test_acceptance.py::test_the_real_failure_was_observed PASSED [  0%]
+tests/integration/test_acceptance.py::test_report_orders_config_change_before_service_failure PASSED [  1%]
+tests/integration/test_acceptance.py::test_the_unrelated_edit_is_listed_but_ranked_further_away PASSED [  2%]
+tests/integration/test_acceptance.py::test_diff_is_attached_and_secrets_are_redacted PASSED [  2%]
+tests/integration/test_acceptance.py::test_secrets_never_reach_the_database_or_its_wal PASSED [  3%]
+tests/integration/test_acceptance.py::test_three_files_tracked_and_chain_intact PASSED [  4%]
+tests/integration/test_cli.py::test_init_creates_config_and_database_and_refuses_overwrite PASSED [  5%]
+tests/integration/test_cli.py::test_full_flow_from_baseline_to_incident_report PASSED [  5%]
+tests/integration/test_cli.py::test_tampering_is_reported_with_exit_code_2 PASSED [  6%]
+tests/integration/test_cli.py::test_incident_with_no_failures_exits_3 PASSED [  7%]
+tests/integration/test_cli.py::test_diff_for_untracked_or_unchanged_file_is_an_error PASSED [  8%]
+tests/integration/test_cli.py::test_bad_arguments_exit_1_with_a_message[argv0] PASSED [  8%]
+tests/integration/test_cli.py::test_bad_arguments_exit_1_with_a_message[argv1] PASSED [  9%]
+tests/integration/test_cli.py::test_bad_arguments_exit_1_with_a_message[argv2] PASSED [ 10%]
+tests/integration/test_cli.py::test_missing_config_is_a_helpful_error PASSED [ 11%]
+tests/integration/test_cli.py::test_run_with_nothing_to_watch_explains_itself PASSED [ 11%]
+tests/integration/test_cli.py::test_no_command_prints_help PASSED        [ 12%]
+tests/integration/test_cli.py::test_duration_stops_a_continuous_run_cleanly PASSED [ 13%]
+tests/integration/test_module_entry.py::test_python_dash_m_entry_point_runs PASSED [ 13%]
+tests/unit/test_config.py::test_template_is_valid_and_builds_resource_collector_only PASSED [ 14%]
+tests/unit/test_config.py::test_relative_paths_resolve_against_the_config_file PASSED [ 15%]
+tests/unit/test_config.py::test_full_config PASSED                       [ 16%]
+tests/unit/test_config.py::test_auto_machine_id_uses_hostname PASSED     [ 16%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw0-unknown key] PASSED [ 17%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw1-unknown key] PASSED [ 18%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw2-at least 0.5] PASSED [ 19%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw3-wrong type] PASSED [ 19%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw4-wrong type] PASSED [ 20%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw5-non-empty strings] PASSED [ 21%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw6-positive] PASSED [ 22%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw7-name is required] PASSED [ 22%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw8-kind must be one of] PASSED [ 23%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw9-port is required] PASSED [ 24%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw10-non-empty list] PASSED [ 25%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw11-unique] PASSED [ 25%]
+tests/unit/test_config.py::test_invalid_configs_are_rejected_with_a_clear_message[raw12-at least 5] PASSED [ 26%]
+tests/unit/test_config.py::test_bad_regex_fails_at_load_time PASSED      [ 27%]
+tests/unit/test_config.py::test_missing_and_malformed_files PASSED       [ 27%]
+tests/unit/test_config.py::test_shipped_example_config_is_valid PASSED   [ 28%]
+tests/unit/test_config_files.py::test_baseline_then_no_noise PASSED      [ 29%]
+tests/unit/test_config_files.py::test_change_records_redacted_unified_diff PASSED [ 30%]
+tests/unit/test_config_files.py::test_secret_rotation_is_a_change_with_no_visible_diff PASSED [ 30%]
+tests/unit/test_config_files.py::test_delete_then_recreate PASSED        [ 31%]
+tests/unit/test_config_files.py::test_file_missing_at_start_is_a_baseline_not_an_alarm PASSED [ 32%]
+tests/unit/test_config_files.py::test_change_made_while_stopped_is_found_on_next_run PASSED [ 33%]
+tests/unit/test_config_files.py::test_mtime_is_recorded PASSED           [ 33%]
+tests/unit/test_config_files.py::test_oversize_files_are_hash_only PASSED [ 34%]
+tests/unit/test_config_files.py::test_binary_files_are_hash_only PASSED  [ 35%]
+tests/unit/test_config_files.py::test_unreadable_path_is_reported_once PASSED [ 36%]
+tests/unit/test_config_files.py::test_long_diffs_are_truncated PASSED    [ 36%]
+tests/unit/test_config_files.py::test_directory_is_reported_as_not_a_regular_file PASSED [ 37%]
+tests/unit/test_config_files.py::test_fifo_does_not_block_the_recorder PASSED [ 38%]
+tests/unit/test_model.py::test_unknown_severity_is_rejected PASSED       [ 38%]
+tests/unit/test_model.py::test_severities_are_ordered_and_event_helpers_work PASSED [ 39%]
+tests/unit/test_recorder.py::test_run_brackets_ticks_with_start_and_stop PASSED [ 40%]
+tests/unit/test_recorder.py::test_unclean_shutdown_is_flagged_as_a_gap PASSED [ 41%]
+tests/unit/test_recorder.py::test_clean_restart_has_no_gap PASSED        [ 41%]
+tests/unit/test_recorder.py::test_a_failing_collector_is_reported_once_and_does_not_stop_others PASSED [ 42%]
+tests/unit/test_recorder.py::test_stop_event_ends_the_loop_with_signal_reason PASSED [ 43%]
+tests/unit/test_recorder.py::test_tick_updates_last_tick_marker PASSED   [ 44%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[password = hunter2] PASSED [ 44%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[DB_PASSWORD=hunter2] PASSED [ 45%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[api_key: "hunter2"] PASSED [ 46%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[api-key = 'hunter2'] PASSED [ 47%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted["client_secret": "hunter2",] PASSED [ 47%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[token=hunter2] PASSED [ 48%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[aws_access_key_id = hunter2] PASSED [ 49%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[private_key: hunter2] PASSED [ 50%]
+tests/unit/test_redact.py::test_sensitive_assignments_are_redacted[connection_string = Server=db;Password=hunter2] PASSED [ 50%]
+tests/unit/test_redact.py::test_quotes_and_keys_are_preserved PASSED     [ 51%]
+tests/unit/test_redact.py::test_ordinary_settings_are_untouched PASSED   [ 52%]
+tests/unit/test_redact.py::test_url_credentials_bearer_and_aws_ids PASSED [ 52%]
+tests/unit/test_redact.py::test_pem_private_key_block_is_removed PASSED  [ 53%]
+tests/unit/test_redact.py::test_extra_patterns_and_idempotence PASSED    [ 54%]
+tests/unit/test_report.py::test_config_change_precedes_the_failure_with_its_diff PASSED [ 55%]
+tests/unit/test_report.py::test_precursors_are_nearest_first_and_include_earlier_failures PASSED [ 55%]
+tests/unit/test_report.py::test_later_events_are_never_precursors PASSED [ 56%]
+tests/unit/test_report.py::test_mtime_orders_a_change_noticed_in_the_same_poll PASSED [ 57%]
+tests/unit/test_report.py::test_mtime_in_the_future_is_ignored PASSED    [ 58%]
+tests/unit/test_report.py::test_default_centre_is_the_latest_failure PASSED [ 58%]
+tests/unit/test_report.py::test_no_failures_is_an_explicit_error PASSED  [ 59%]
+tests/unit/test_report.py::test_quiet_window_reports_no_failures PASSED  [ 60%]
+tests/unit/test_report.py::test_failure_with_nothing_before_it PASSED    [ 61%]
+tests/unit/test_report.py::test_broken_chain_is_called_out_in_every_format PASSED [ 61%]
+tests/unit/test_report.py::test_html_escapes_untrusted_content PASSED    [ 62%]
+tests/unit/test_report.py::test_html_is_self_contained PASSED            [ 63%]
+tests/unit/test_report.py::test_human_delta PASSED                       [ 63%]
+tests/unit/test_report.py::test_golden_markdown PASSED                   [ 64%]
+tests/unit/test_report.py::test_golden_json PASSED                       [ 65%]
+tests/unit/test_resources.py::test_spike_above_floor_and_baseline_then_recovery PASSED [ 66%]
+tests/unit/test_resources.py::test_always_hot_machine_does_not_alarm_forever PASSED [ 66%]
+tests/unit/test_resources.py::test_below_floor_never_spikes_even_on_big_jump PASSED [ 67%]
+tests/unit/test_resources.py::test_spike_samples_do_not_pollute_baseline PASSED [ 68%]
+tests/unit/test_resources.py::test_disk_is_threshold_only PASSED         [ 69%]
+tests/unit/test_resources.py::test_unreadable_disk_path_is_skipped PASSED [ 69%]
+tests/unit/test_resources.py::test_proc_sampler_reads_fake_proc PASSED   [ 70%]
+tests/unit/test_resources.py::test_proc_sampler_unavailable_off_linux PASSED [ 71%]
+tests/unit/test_resources.py::test_default_sampler_works_here PASSED     [ 72%]
+tests/unit/test_services.py::test_systemd_states PASSED                  [ 72%]
+tests/unit/test_services.py::test_windows_states PASSED                  [ 73%]
+tests/unit/test_services.py::test_command_probe PASSED                   [ 74%]
+tests/unit/test_services.py::test_default_runner_runs_without_a_shell PASSED [ 75%]
+tests/unit/test_services.py::test_tcp_probe_against_a_real_socket PASSED [ 75%]
+tests/unit/test_services.py::test_tcp_unresolvable_host_is_unknown_not_down PASSED [ 76%]
+tests/unit/test_services.py::test_transitions_become_events PASSED       [ 77%]
+tests/unit/test_services.py::test_failure_event_carries_previous_state_and_detail PASSED [ 77%]
+tests/unit/test_store.py::test_commit_chains_events_from_genesis PASSED  [ 78%]
+tests/unit/test_store.py::test_empty_chain_is_valid PASSED               [ 79%]
+tests/unit/test_store.py::test_events_are_append_only PASSED             [ 80%]
+tests/unit/test_store.py::test_edit_in_the_middle_is_detected PASSED     [ 80%]
+tests/unit/test_store.py::test_deleting_a_middle_event_is_detected PASSED [ 81%]
+tests/unit/test_store.py::test_trailing_deletion_needs_an_external_anchor PASSED [ 82%]
+tests/unit/test_store.py::test_anchor_matches_when_untouched PASSED      [ 83%]
+tests/unit/test_store.py::test_commit_is_atomic PASSED                   [ 83%]
+tests/unit/test_store.py::test_state_and_versions_commit_with_events PASSED [ 84%]
+tests/unit/test_store.py::test_state_prefix_is_not_a_wildcard PASSED     [ 85%]
+tests/unit/test_store.py::test_digest_is_keyed_per_database PASSED       [ 86%]
+tests/unit/test_store.py::test_digest_key_is_not_exposed PASSED          [ 86%]
+tests/unit/test_store.py::test_filters_and_ordering PASSED               [ 87%]
+tests/unit/test_store.py::test_search_is_literal_not_a_pattern PASSED    [ 88%]
+tests/unit/test_store.py::test_reopening_preserves_chain_and_key PASSED  [ 88%]
+tests/unit/test_store.py::test_newer_schema_is_refused PASSED            [ 89%]
+tests/unit/test_store.py::test_unopenable_path_raises_store_error PASSED [ 90%]
+tests/unit/test_store.py::test_new_database_is_owner_only PASSED         [ 91%]
+tests/unit/test_timeparse.py::test_durations[90s-90] PASSED              [ 91%]
+tests/unit/test_timeparse.py::test_durations[30m-1800] PASSED            [ 92%]
+tests/unit/test_timeparse.py::test_durations[2h-7200] PASSED             [ 93%]
+tests/unit/test_timeparse.py::test_durations[1d-86400] PASSED            [ 94%]
+tests/unit/test_timeparse.py::test_durations[1w-604800] PASSED           [ 94%]
+tests/unit/test_timeparse.py::test_durations[1.5h-5400] PASSED           [ 95%]
+tests/unit/test_timeparse.py::test_times PASSED                          [ 96%]
+tests/unit/test_timeparse.py::test_bad_input_is_rejected[yesterday] PASSED [ 97%]
+tests/unit/test_timeparse.py::test_bad_input_is_rejected[2x] PASSED      [ 97%]
+tests/unit/test_timeparse.py::test_bad_input_is_rejected[] PASSED        [ 98%]
+tests/unit/test_timeparse.py::test_bad_input_is_rejected[12:00] PASSED   [ 99%]
+tests/unit/test_timeparse.py::test_iso_formatting PASSED                 [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.18-final-0 _______________
+
+Name                                      Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------------------------------
+src/blackbox/__init__.py                      2      0      0      0   100%
+src/blackbox/__main__.py                      2      2      0      0     0%   1-3
+src/blackbox/cli.py                         229      4     52      4    97%   40->38, 160, 209, 253, 292
+src/blackbox/collectors/__init__.py           5      0      0      0   100%
+src/blackbox/collectors/base.py              17      0      0      0   100%
+src/blackbox/collectors/config_files.py     102      2     30      0    98%   189-190
+src/blackbox/collectors/resources.py         93      3     24      3    95%   66->68, 74->77, 83-84, 114
+src/blackbox/collectors/services.py         122      5     48      2    96%   52-53, 118, 126, 138
+src/blackbox/config.py                      113      0     34      1    99%   124->126
+src/blackbox/model.py                        50      0      2      0   100%
+src/blackbox/recorder.py                     54      0     12      0   100%
+src/blackbox/redact.py                       30      0      6      0   100%
+src/blackbox/report.py                      205     10     76     10    93%   130, 132, 135, 137, 139, 148, 153, 339, 352, 364
+src/blackbox/store.py                       218      5     60      3    97%   141->144, 150, 189-191, 404
+src/blackbox/timeparse.py                    35      0     10      0   100%
+-------------------------------------------------------------------------------------
+TOTAL                                      1277     31    354     23    97%
+============================= 136 passed in 3.88s ==============================

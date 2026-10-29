@@ -1,0 +1,10 @@
+platform         Linux-6.18.44-fc-v185-x86_64-with-glibc2.39 / Python 3.13.18
+duration         30.0 s at 1 s polling (30 collection passes)
+workload         3 tracked files, 1 TCP probe, CPU/memory/disk sampling
+recorder CPU     0.064 s of CPU time = 0.21% of one core
+resident memory  24.0 MiB (whole process, includes the interpreter)
+events written   6
+database size    285 KiB including WAL
+note             short smoke measurement, not a 24-hour soak test
+note             CPU time includes the benchmark's own listener thread, so it
+                 slightly overstates the recorder

@@ -1,0 +1,9 @@
+2026-10-29T21:00:10Z  info      recorder.started    recorder  0.1.0
+2026-10-29T21:00:10Z  info      config.baseline     /tmp/blackbox-acceptance-5tneovvn/app.conf  baseline recorded
+2026-10-29T21:00:10Z  info      config.baseline     /tmp/blackbox-acceptance-5tneovvn/db.conf  baseline recorded
+2026-10-29T21:00:10Z  info      config.baseline     /tmp/blackbox-acceptance-5tneovvn/limits.conf  baseline recorded
+2026-10-29T21:00:10Z  info      service.baseline    demo-api  up (connected to 127.0.0.1:34609)
+2026-10-29T21:00:11Z  warning   config.changed      /tmp/blackbox-acceptance-5tneovvn/db.conf  +1 -1 lines
+2026-10-29T21:00:11Z  warning   config.changed      /tmp/blackbox-acceptance-5tneovvn/app.conf  +2 -2 lines
+2026-10-29T21:00:11Z  error     service.failed      demo-api  up -> down (127.0.0.1:34609: Connection refused)
+2026-10-29T21:00:11Z  info      recorder.stopped    recorder  requested
