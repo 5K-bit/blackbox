@@ -20,4 +20,4 @@ The temporary directory names in the transcript differ on every run, and the two
 
 - Behaviour on Windows, or against a real `systemd` or Windows service. Those probes are unit-tested against sample command output only.
 - Long-running behaviour. The overhead figure is a 30-second smoke measurement, not a 24-hour soak test.
-- Anything about CI. The workflows in `.github/` have not yet run on GitHub.
+- CI results are not stored here. See the [Actions tab](https://github.com/5K-bit/blackbox/actions): the first run (commit `4f2c634`) passed on Linux and Windows, Python 3.11 and 3.13, plus the stdlib-only and audit jobs.

@@ -159,7 +159,7 @@ Blackbox does not claim more than it has shown:
 - **Polling, not event hooks.** Timing is accurate to the polling interval (default 10 s). A change made and reverted, or a service that fails and recovers, between two polls is invisible. File events carry the file's modification time, which sharpens ordering; failures are dated by the poll that saw them.
 - **Tamper evidence, not tamper proofing.** `verify` catches edits and deletions in the middle of history. Someone with write access to the file can rebuild the chain, and removed trailing events are only caught if you recorded the chain head elsewhere (`blackbox status`, then `verify --anchor`).
 - **Redaction is pattern-based.** A secret in a format the patterns do not recognise will be stored. Add your own with `extra_patterns`, and do not track files you cannot redact. Database access is owner-only on POSIX; on Windows it follows the folder ACL.
-- **Not yet verified on real Windows or real services.** The Windows and `systemd` probes are tested against sample command output, not against live services. The CI workflow tests Windows, but has not yet run on GitHub.
+- **Not yet verified against real services.** The test suite passes on Linux and Windows in CI (Python 3.11 and 3.13), but the Windows and `systemd` service probes are tested against sample command output, not against live services.
 - **No retention yet.** The event table grows without limit. The only overhead measurement is a 30-second smoke run, not a 24-hour soak.
 - **One machine, no remote shipping, no process-crash or Windows Event Log collector.** Those are roadmap items.
 - **Ordering is not causation.** The report lists what preceded a failure. It does not decide why.
@@ -168,7 +168,7 @@ Blackbox does not claim more than it has shown:
 
 - [x] Append-only hash-chained store, `verify` with external anchor
 - [x] Config, service and resource collectors; incident reports in HTML, Markdown and JSON
-- [ ] Run on GitHub CI (Linux and Windows) and confirm the matrix is green
+- [x] Run on GitHub CI (Linux and Windows) and confirm the matrix is green
 - [ ] Verify the `systemd` and Windows service probes on real hosts
 - [ ] Retention and compaction; 24-hour overhead benchmark
 - [ ] Run as a service (systemd unit, Windows service) with a failure threshold to suppress flapping

@@ -6,7 +6,9 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-First working version, targeting 0.1.0.
+## [0.1.0] - 2026-10-29
+
+First working version.
 
 ### Added
 
