@@ -6,6 +6,10 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Fixed
+
+- Service probes now run with standard input closed and standard error discarded, so a probe command can never wait on the terminal or fill the pipe with diagnostics.
+
 ### Changed
 
 - Release workflow now re-runs the full CI matrix on the tagged commit and publishes only if it passes.

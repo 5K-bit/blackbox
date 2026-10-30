@@ -133,3 +133,17 @@ def test_failure_event_carries_previous_state_and_detail(store: Store, clock) ->
         "detail": "exit 1",
         "from": "up",
     }
+
+
+def test_default_runner_gives_probes_no_input_and_drops_stderr() -> None:
+    import sys
+
+    code, out = default_runner(
+        [
+            sys.executable,
+            "-c",
+            "import sys; print(len(sys.stdin.read())); print('x', file=sys.stderr)",
+        ],
+        10,
+    )
+    assert code == 0 and out.strip() == "0"

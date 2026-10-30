@@ -43,7 +43,13 @@ def default_runner(command: Sequence[str], timeout: float) -> tuple[int, str]:
     """
     try:
         done = subprocess.run(
-            list(command), capture_output=True, text=True, timeout=timeout, check=False
+            list(command),
+            stdin=subprocess.DEVNULL,  # a probe must never wait on, or read from, the terminal
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            timeout=timeout,
+            check=False,
         )
     except FileNotFoundError:
         return 127, ""
