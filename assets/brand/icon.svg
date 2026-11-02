@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  <title id="t">Blackbox icon</title>
+  <rect width="256" height="256" rx="56" fill="#0c1220"/>
+  <rect x="6" y="6" width="244" height="244" rx="50" fill="none" stroke="#ff9f1c" stroke-opacity=".35" stroke-width="4"/>
+  <g transform="translate(29.33 29.33) scale(0.8222)" fill="none" stroke="#ff9f1c" stroke-width="12.16" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="40" width="180" height="160" rx="26"/><path d="M60 130h30l15-45 30 90 22-60 12 15h31"/><circle cx="192" cy="64" r="7" fill="#ff9f1c"/></g>
+</svg>
