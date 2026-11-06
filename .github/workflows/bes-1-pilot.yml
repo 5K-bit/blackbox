@@ -2,6 +2,9 @@ name: BES-1 pilot task validation
 
 on:
   pull_request:
+    paths:
+      - 'justfile'
+      - '.github/workflows/bes-1-pilot.yml'
   workflow_dispatch:
 
 permissions:
