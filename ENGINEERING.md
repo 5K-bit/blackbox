@@ -1,7 +1,7 @@
 # BES-1 pilot: Blackbox
 
 **Status:** Pilot proposal; does not assert production readiness.  
-**Canonical standard:** [BES-1 proposal and review](https://github.com/5K-bit/O.B.E.O.S/pull/16) (draft pending merge).
+**Canonical standard:** [BES-1 on OBEOS](https://github.com/5K-bit/O.B.E.O.S/blob/main/docs/standards/BES-1.md) (proposed in [OBEOS PR #16](https://github.com/5K-bit/O.B.E.O.S/pull/16); merge that PR before adopting this pilot).
 
 ## Task interface
 
