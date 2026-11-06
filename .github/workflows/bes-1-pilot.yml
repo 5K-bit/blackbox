@@ -1,0 +1,39 @@
+name: BES-1 pilot task validation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  task-interface:
+    name: just tasks (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - uses: extractions/setup-just@53165ef7e734c5c07cb06b3c8e7b647c5aa16db3 # v4.0.0
+        with:
+          just-version: '1.58.0'
+      - name: Confirm recipes parse
+        run: just --list
+      - name: Install
+        run: just setup
+      - name: Run BES-1 checks
+        run: just check
+      - name: Run BES-1 integration
+        run: just integration
+      - name: Run safe CLI smoke
+        run: just smoke
+      - name: Build local artifacts
+        run: just build
+      - name: Verify release-check recipe without publishing
+        run: just --dry-run release-check
